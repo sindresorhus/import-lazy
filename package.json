@@ -1,6 +1,6 @@
 {
   "name": "lazy-req",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Require modules lazily",
   "license": "MIT",
   "repository": "sindresorhus/lazy-req",
