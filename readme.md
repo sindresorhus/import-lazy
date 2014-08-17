@@ -15,7 +15,7 @@ $ npm install --save lazy-req
 ```js
 // pass in `require` or a custom require function
 var lazyReq = require('lazy-req')(require);
-var lodash = require('lodash');
+var _ = lazyReq('lodash');
 
 // where you would normally do
 _.isNumber(2);
