@@ -9,6 +9,12 @@
     "email": "sindresorhus@gmail.com",
     "url": "http://sindresorhus.com"
   },
+  "contributors": [
+    {
+      "name": "Jorge Bucaran",
+      "email": "jbucaran@me.com"
+    }
+  ],
   "engines": {
     "node": ">=0.10.0"
   },
