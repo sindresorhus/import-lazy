@@ -1,28 +1,32 @@
 'use strict';
-var slice = Array.prototype.slice
 module.exports = function (fn) {
-	return function (id, mod) {
+	return function (id) {
+		var mod;
+
 		return function () {
-			if (!arguments.length) return mod = lazy(mod, fn, id);
-			var obj = {}, args = slice.call(arguments, 0);
-			args.forEach(function (prop) {
-				Object.defineProperty(obj, prop, {
+			mod = mod !== undefined ? mod : fn(id);
+
+			if (!arguments.length) {
+				return mod;
+			}
+
+			var ret = {};
+
+			[].forEach.call(arguments, function (prop) {
+				Object.defineProperty(ret, prop, {
 					get: function () {
-						mod = lazy(mod, fn, id);
 						if (typeof mod[prop] === 'function') {
 							return function () {
-								return mod[prop].apply(mod, slice.call(arguments, 0));
-							}
-						} else {
-							return mod[prop];
+								return mod[prop].apply(mod, arguments);
+							};
 						}
+
+						return mod[prop];
 					}
 				});
 			});
-			return obj;
+
+			return ret;
 		};
 	};
-	function lazy (mod, fn, id) {
-		return mod !== undefined ? mod : fn(id);
-	}
 };
