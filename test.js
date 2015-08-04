@@ -8,6 +8,11 @@ test('main', function (t) {
 	t.assert(f()() === 'foo');
 });
 
+test('lazy', function () {
+	// require does not occurr unless user tries to access `foo`
+	lazyReq('./fixtures/fail')('foo');
+});
+
 test('props', function (t) {
 	var obj = lazyReq('./fixtures/foo.bar.js')('foo', 'bar', 'baz');
 	t.assert(obj.foo() === 'foo');
