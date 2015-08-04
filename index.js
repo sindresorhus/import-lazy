@@ -4,9 +4,8 @@ module.exports = function (fn) {
 		var mod;
 
 		return function () {
-			mod = mod !== undefined ? mod : fn(id);
-
 			if (!arguments.length) {
+				mod = lazy(mod, fn, id);
 				return mod;
 			}
 
@@ -15,6 +14,7 @@ module.exports = function (fn) {
 			[].forEach.call(arguments, function (prop) {
 				Object.defineProperty(ret, prop, {
 					get: function () {
+						mod = lazy(mod, fn, id);
 						if (typeof mod[prop] === 'function') {
 							return function () {
 								return mod[prop].apply(mod, arguments);
@@ -29,4 +29,8 @@ module.exports = function (fn) {
 			return ret;
 		};
 	};
+
+	function lazy(mod, fn, id) {
+		return mod !== undefined ? mod : fn(id);
+	}
 };
