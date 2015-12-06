@@ -39,6 +39,14 @@ console.log(stuff.PHI); // => 1.618033
 ```
 
 
+## Related
+
+- [resolve-from](https://github.com/sindresorhus/resolve-from) - Resolve the path of a module from a given path
+- [resolve-cwd](https://github.com/sindresorhus/resolve-cwd) - Resolve the path of a module from the current working directory
+- [req-from](https://github.com/sindresorhus/req-from) - Require a module from a given path
+- [req-cwd](https://github.com/sindresorhus/req-cwd) - Require a module from the current working directory
+
+
 ## License
 
 MIT © [Sindre Sorhus](http://sindresorhus.com)
