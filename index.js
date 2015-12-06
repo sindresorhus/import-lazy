@@ -4,7 +4,7 @@ module.exports = function (fn) {
 		var mod;
 
 		return function () {
-			if (!arguments.length) {
+			if (arguments.length === 0) {
 				mod = lazy(mod, fn, id);
 				return mod;
 			}
@@ -31,6 +31,6 @@ module.exports = function (fn) {
 	};
 
 	function lazy(mod, fn, id) {
-		return mod !== undefined ? mod : fn(id);
+		return mod === undefined ? fn(id) : mod;
 	}
 };

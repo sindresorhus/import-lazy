@@ -1,22 +1,23 @@
-'use strict';
-var test = require('ava');
-var lazyReq = require('./')(require);
+import test from 'ava';
+import fn from './';
 
-test('main', function (t) {
-	var f = lazyReq('./fixtures/foo');
-	t.assert(f() === f());
-	t.assert(f()() === 'foo');
+const lazyReq = fn(require);
+
+test('main', t => {
+	const f = lazyReq('./fixtures/foo');
+	t.is(f(), f());
+	t.is(f()(), 'foo');
 });
 
-test('lazy', function () {
-	// require does not occurr unless user tries to access `foo`
+test('lazy', () => {
+	// require does not occur unless user tries to access `foo`
 	lazyReq('./fixtures/fail')('foo');
 });
 
-test('props', function (t) {
-	var obj = lazyReq('./fixtures/foo.bar.js')('foo', 'bar', 'baz');
-	t.assert(obj.foo() === 'foo');
-	t.assert(obj.foo() === 'foo');
-	t.assert(obj.bar('j', 's') === 'barjs');
-	t.assert(obj.baz === 'baz');
+test('props', t => {
+	const obj = lazyReq('./fixtures/foo.bar.js')('foo', 'bar', 'baz');
+	t.is(obj.foo(), 'foo');
+	t.is(obj.foo(), 'foo');
+	t.is(obj.bar('j', 's'), 'barjs');
+	t.is(obj.baz, 'baz');
 });

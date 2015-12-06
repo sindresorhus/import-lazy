@@ -14,8 +14,8 @@ $ npm install --save lazy-req
 
 ```js
 // pass in `require` or a custom require function
-var lazyReq = require('lazy-req')(require);
-var _ = lazyReq('lodash');
+const lazyReq = require('lazy-req')(require);
+const _ = lazyReq('lodash');
 
 // where you would normally do
 _.isNumber(2);
@@ -27,13 +27,13 @@ _().isNumber(2);
 _().isString('unicorn');
 
 // extract lazy variations of the props you need
-var members = lazyReq('lodash')('isNumber', 'isString');
+const members = lazyReq('lodash')('isNumber', 'isString');
 
 // useful when using destructuring assignment in ES2015
-const { isNumber, isString } = lazyReq('lodash')('isNumber', 'isString');
+const {isNumber, isString} = lazyReq('lodash')('isNumber', 'isString');
 
 // works out of the box for functions and regular properties
-var stuff = lazyReq('./math-lib')('sum', 'PHI');
+const stuff = lazyReq('./math-lib')('sum', 'PHI');
 console.log(stuff.sum(1, 2)); // => 3
 console.log(stuff.PHI); // => 1.618033
 ```
