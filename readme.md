@@ -38,6 +38,17 @@ console.log(stuff.sum(1, 2)); // => 3
 console.log(stuff.PHI); // => 1.618033
 ```
 
+### Proxy support in Node.js 6 or later
+
+If you use Node.js 6 or later, you can take advantage of ES2015 proxies and don't need to call it as a function.
+
+```js
+const lazyReq = require('lazy-req').proxy(require);
+const _ = lazyReq('lodash');
+
+// No need to call it as a function but still lazily required
+_.isNumber(2);
+```
 
 ## Related
 
