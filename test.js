@@ -1,7 +1,7 @@
 import test from 'ava';
-import fn from './';
+import m from './';
 
-const lazyReq = fn(require);
+const lazyReq = m(require);
 
 test('main', t => {
 	const f = lazyReq('./fixtures/foo');
@@ -10,7 +10,7 @@ test('main', t => {
 });
 
 test('lazy', () => {
-	// require does not occur unless user tries to access `foo`
+	// `require()` does not occur unless user tries to access `foo`
 	lazyReq('./fixtures/fail')('foo');
 });
 

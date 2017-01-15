@@ -1,5 +1,7 @@
 'use strict';
 module.exports = fn => {
+	const lazy = (mod, fn, id) => mod === undefined ? fn(id) : mod;
+
 	return id => {
 		let mod;
 
@@ -29,8 +31,4 @@ module.exports = fn => {
 			return ret;
 		};
 	};
-
-	function lazy(mod, fn, id) {
-		return mod === undefined ? fn(id) : mod;
-	}
 };

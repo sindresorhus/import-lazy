@@ -1,4 +1,2 @@
 'use strict';
-module.exports = () => {
-	return 'foo';
-};
+module.exports = () => 'foo';
