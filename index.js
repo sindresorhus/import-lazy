@@ -1,7 +1,7 @@
 'use strict';
-module.exports = function (fn) {
-	return function (id) {
-		var mod;
+module.exports = fn => {
+	return id => {
+		let mod;
 
 		return function () {
 			if (arguments.length === 0) {
@@ -9,11 +9,11 @@ module.exports = function (fn) {
 				return mod;
 			}
 
-			var ret = {};
+			const ret = {};
 
-			[].forEach.call(arguments, function (prop) {
+			[].forEach.call(arguments, prop => {
 				Object.defineProperty(ret, prop, {
-					get: function () {
+					get: () => {
 						mod = lazy(mod, fn, id);
 						if (typeof mod[prop] === 'function') {
 							return function () {

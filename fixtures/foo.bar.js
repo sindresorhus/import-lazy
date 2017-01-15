@@ -1,10 +1,10 @@
 'use strict';
 
-module.exports.foo = function () {
+module.exports.foo = () => {
 	return 'foo';
 };
 
-module.exports.bar = function (ho, ge) {
+module.exports.bar = (ho, ge) => {
 	return 'bar' + ho + ge;
 };
 
