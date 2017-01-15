@@ -46,6 +46,8 @@ console.log(stuff.PHI); // => 1.618033
 - [req-from](https://github.com/sindresorhus/req-from) - Require a module from a given path
 - [req-cwd](https://github.com/sindresorhus/req-cwd) - Require a module from the current working directory
 - [resolve-pkg](https://github.com/sindresorhus/resolve-pkg) - Resolve the path of a package regardless of it having an entry point
+- [lazy-value](https://github.com/sindresorhus/lazy-value) - Create a lazily evaluated value
+- [define-lazy-prop](https://github.com/sindresorhus/define-lazy-prop) - Define a lazily evaluated property on an object
 
 
 ## License
