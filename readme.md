@@ -1,6 +1,6 @@
 # import-lazy [![Build Status](https://travis-ci.org/sindresorhus/import-lazy.svg?branch=master)](https://travis-ci.org/sindresorhus/import-lazy)
 
-> Import modules lazily
+> Import a module lazily
 
 
 ## Install
