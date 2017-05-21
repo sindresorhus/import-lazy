@@ -1,9 +1,9 @@
 {
-  "name": "lazy-req",
+  "name": "import-lazy",
   "version": "2.0.0",
-  "description": "Require modules lazily",
+  "description": "Import modules lazily",
   "license": "MIT",
-  "repository": "sindresorhus/lazy-req",
+  "repository": "sindresorhus/import-lazy",
   "author": {
     "name": "Sindre Sorhus",
     "email": "sindresorhus@gmail.com",
@@ -25,6 +25,7 @@
     "index.js"
   ],
   "keywords": [
+    "import",
     "require",
     "load",
     "module",
