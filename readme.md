@@ -17,10 +17,10 @@ $ npm install --save import-lazy
 const importLazy = require('import-lazy')(require);
 const _ = importLazy('lodash');
 
-// Where you would normally do
+// Instead of referring to its exported properties directly
 _.isNumber(2);
 
-// You now instead call it as a function
+// You must first call it as a function
 _().isNumber(2);
 
 // It's cached on consecutive calls
