@@ -17,7 +17,7 @@ $ npm install --save import-lazy
 const importLazy = require('import-lazy')(require);
 const _ = importLazy('lodash');
 
-// Instead of referring to its exported perperties directly
+// Instead of referring to its exported properties directly
 _.isNumber(2);
 
 // You must first call it as a function
