@@ -5,22 +5,20 @@ module.exports = fn => {
 	return id => {
 		let mod;
 
-		return function () {
-			if (arguments.length === 0) {
+		return (...props) => {
+			if (props.length === 0) {
 				mod = lazy(mod, fn, id);
 				return mod;
 			}
 
 			const ret = {};
 
-			[].forEach.call(arguments, prop => {
+			props.forEach(prop => {
 				Object.defineProperty(ret, prop, {
 					get: () => {
 						mod = lazy(mod, fn, id);
 						if (typeof mod[prop] === 'function') {
-							return function () {
-								return mod[prop].apply(mod, arguments);
-							};
+							return (...params) => mod[prop].apply(mod, params);
 						}
 
 						return mod[prop];
