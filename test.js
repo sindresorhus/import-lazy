@@ -5,19 +5,19 @@ const importLazy = m(require);
 
 test('main', t => {
 	const f = importLazy('./fixtures/foo');
-	t.is(f(), f());
-	t.is(f()(), 'foo');
+	t.is(f(), 'foo');
+
+	const g = importLazy('./fixtures/baz');
+	t.is(g('j', 's'), 'bazjs');
 });
 
 test('lazy', t => {
-	// `require()` does not occur unless user tries to access `foo`
-	importLazy('./fixtures/fail')('foo');
+	importLazy('./fixtures/fail');
 	t.pass();
 });
 
 test('props', t => {
-	const obj = importLazy('./fixtures/foo.bar.js')('foo', 'bar', 'baz');
-	t.is(obj.foo(), 'foo');
+	const obj = importLazy('./fixtures/foo.bar.js');
 	t.is(obj.foo(), 'foo');
 	t.is(obj.bar('j', 's'), 'barjs');
 	t.is(obj.baz, 'baz');

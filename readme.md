@@ -2,6 +2,7 @@
 
 > Import a module lazily
 
+Version 3.0.0 is exclusively `Proxy`-based (Node 6+). If you want Node <= 5 support use version 2.
 
 ## Install
 
@@ -20,35 +21,18 @@ const _ = importLazy('lodash');
 // Instead of referring to its exported properties directly
 _.isNumber(2);
 
-// You must first call it as a function
-_().isNumber(2);
-
 // It's cached on consecutive calls
-_().isString('unicorn');
+_.isNumber('unicorn');
 
-// Extract lazy variations of the props you need
-const members = importLazy('lodash')('isNumber', 'isString');
-
-// Useful when using destructuring assignment in ES2015
-const {isNumber, isString} = importLazy('lodash')('isNumber', 'isString');
+// It also works using destructuring assignment in ES2015
+const {isNumber, isString} = importLazy('lodash');
 
 // Works out of the box for functions and regular properties
-const stuff = importLazy('./math-lib')('sum', 'PHI');
+const stuff = importLazy('./math-lib');
 console.log(stuff.sum(1, 2)); // => 3
 console.log(stuff.PHI); // => 1.618033
 ```
 
-### Proxy support in Node.js 6 or later
-
-If you use Node.js 6 or later, you can take advantage of ES2015 proxies and don't need to call it as a function.
-
-```js
-const importLazy = require('import-lazy').proxy(require);
-const _ = importLazy('lodash');
-
-// No need to call it as a function but still lazily imported
-_.isNumber(2);
-```
 
 ## Related
 
