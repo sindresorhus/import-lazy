@@ -4,10 +4,11 @@
 
 Note: Version 3 is exclusively `Proxy`-based and requires Node.js 6+. Use [version 2](https://github.com/sindresorhus/import-lazy/tree/ed6c2fac31aaf8a7d91a27295756383487f3965d) if you need Node.js <=5 support.
 
+
 ## Install
 
 ```
-$ npm install --save import-lazy
+$ npm install import-lazy
 ```
 
 
@@ -18,10 +19,10 @@ $ npm install --save import-lazy
 const importLazy = require('import-lazy')(require);
 const _ = importLazy('lodash');
 
-// Instead of referring to its exported properties directly
+// Instead of referring to its exported properties directly…
 _.isNumber(2);
 
-// It's cached on consecutive calls
+// …it's cached on consecutive calls
 _.isNumber('unicorn');
 
 // It also works using destructuring assignment in ES2015
