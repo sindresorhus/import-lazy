@@ -2,7 +2,7 @@
 
 > Import a module lazily
 
-Version 3.0.0 is exclusively `Proxy`-based (Node 6+). If you want Node <= 5 support use version 2.
+Note: Version 3 is exclusively `Proxy`-based and requires Node.js 6+. Use [version 2](https://github.com/sindresorhus/import-lazy/tree/ed6c2fac31aaf8a7d91a27295756383487f3965d) if you need Node.js <=5 support.
 
 ## Install
 
