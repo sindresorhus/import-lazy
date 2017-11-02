@@ -13,9 +13,14 @@ module.exports = fn => {
 			apply: (target, thisArg, argumentsList) => {
 				mod = lazy(mod, fn, id);
 				return Reflect.apply(mod, thisArg, argumentsList);
+			},
+			construct: (target, argumentsList) => {
+				mod = lazy(mod, fn, id);
+				return Reflect.construct(mod, argumentsList);
 			}
 		};
 
-		return new Proxy(() => {}, handler);
+		// eslint-disable-next-line prefer-arrow-callback
+		return new Proxy(function () {}, handler);
 	};
 };
