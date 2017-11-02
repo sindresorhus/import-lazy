@@ -26,10 +26,10 @@ test('props', t => {
 test('class', async t => {
 	const Clazz = importLazy('./fixtures/class.js');
 
-	let inst;
+	let instance;
 	await t.notThrows(() => {
-		inst = new Clazz('42');
+		instance = new Clazz('42');
 	});
-	t.truthy(inst instanceof Clazz);
-	t.is(inst.msg, '42');
+	t.truthy(instance instanceof Clazz);
+	t.is(instance.msg, '42');
 });
