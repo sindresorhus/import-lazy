@@ -22,3 +22,14 @@ test('props', t => {
 	t.is(obj.bar('j', 's'), 'barjs');
 	t.is(obj.baz, 'baz');
 });
+
+test('class', t => {
+	const Clazz = importLazy('./fixtures/class.js');
+
+	let instance;
+	t.notThrows(() => {
+		instance = new Clazz('42');
+	});
+	t.true(instance instanceof Clazz);
+	t.is(instance.message, '42');
+});
