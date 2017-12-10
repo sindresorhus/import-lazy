@@ -33,3 +33,17 @@ test('class', t => {
 	t.true(instance instanceof Clazz);
 	t.is(instance.message, '42');
 });
+
+test('destructuring makes it eager', t => {
+	let invoked = false;
+
+	const fakeRequire = () => {
+		invoked = true;
+		return {foo: 'bar'};
+	};
+
+	const {foo} = m(fakeRequire)('fake-module-name');
+
+	t.is(foo, 'bar');
+	t.true(invoked);
+});
