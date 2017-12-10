@@ -25,15 +25,25 @@ _.isNumber(2);
 // …it's cached on consecutive calls
 _.isNumber('unicorn');
 
-// It also works using destructuring assignment in ES2015
-const {isNumber, isString} = importLazy('lodash');
-
 // Works out of the box for functions and regular properties
 const stuff = importLazy('./math-lib');
 console.log(stuff.sum(1, 2)); // => 3
 console.log(stuff.PHI); // => 1.618033
 ```
 
+### Warning: Destructuring will make cause it to fetch eagerly
+
+While you may be tempted to do leverage destructuring, like this:
+
+```js
+const {isNumber, isString} = importLazy('lodash');
+```
+
+Note that this will cause immediate property access, negating the lazy loading, and is equivalent to:
+
+```js
+import {isNumber, isString} from 'lodash';
+```
 
 ## Related
 
