@@ -45,6 +45,15 @@ Note that this will cause immediate property access, negating the lazy loading, 
 import {isNumber, isString} from 'lodash';
 ```
 
+### Warning: Usage with bundlers
+
+If you're using a bundler, like WebPack, you'll have to import your modules like this in order to have them properly bundled:
+
+```jss
+const importLazy = require('import-lazy');
+const _ = importLazy(() => require ( 'lodash' ))();
+```
+
 ## Related
 
 - [resolve-from](https://github.com/sindresorhus/resolve-from) - Resolve the path of a module from a given path
