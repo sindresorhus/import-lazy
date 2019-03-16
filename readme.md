@@ -49,7 +49,7 @@ import {isNumber, isString} from 'lodash';
 
 If you're using a bundler, like WebPack, you'll have to import your modules like this in order to have them properly bundled:
 
-```jss
+```js
 const importLazy = require('import-lazy');
 const _ = importLazy(() => require ( 'lodash' ))();
 ```
