@@ -31,7 +31,7 @@ console.log(stuff.sum(1, 2)); // => 3
 console.log(stuff.PHI); // => 1.618033
 ```
 
-### Warning: Destructuring will make cause it to fetch eagerly
+### Warning: Destructuring will cause it to fetch eagerly
 
 While you may be tempted to do leverage destructuring, like this:
 
