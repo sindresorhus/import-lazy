@@ -19,7 +19,7 @@ console.log(stuff.sum(1, 2)); // => 3
 console.log(stuff.PHI); // => 1.618033
 ```
 */
-declare function importLazy<T = unknown>(
+declare function importLazy<T>(
 	importFn: (moduleId: string) => T
 ): (moduleId: string) => T;
 
