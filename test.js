@@ -1,36 +1,36 @@
 import test from 'ava';
-import m from '.';
+import importLazy from '.';
 
-const importLazy = m(require);
+const importLazyBound = importLazy(require);
 
 test('main', t => {
-	const f = importLazy('./fixtures/foo');
-	t.is(f(), 'foo');
+	const foo = importLazyBound('./fixtures/foo');
+	t.is(foo(), 'foo');
 
-	const g = importLazy('./fixtures/baz');
-	t.is(g('j', 's'), 'bazjs');
+	const baz = importLazyBound('./fixtures/baz');
+	t.is(baz('j', 's'), 'bazjs');
 });
 
 test('lazy', t => {
-	importLazy('./fixtures/fail');
+	importLazyBound('./fixtures/fail');
 	t.pass();
 });
 
 test('props', t => {
-	const obj = importLazy('./fixtures/foo.bar.js');
-	t.is(obj.foo(), 'foo');
-	t.is(obj.bar('j', 's'), 'barjs');
-	t.is(obj.baz, 'baz');
+	const object = importLazyBound('./fixtures/foo.bar.js');
+	t.is(object.foo(), 'foo');
+	t.is(object.bar('j', 's'), 'barjs');
+	t.is(object.baz, 'baz');
 });
 
 test('class', t => {
-	const Clazz = importLazy('./fixtures/class.js');
+	const Class = importLazyBound('./fixtures/class.js');
 
 	let instance;
 	t.notThrows(() => {
-		instance = new Clazz('42');
+		instance = new Class('42');
 	});
-	t.true(instance instanceof Clazz);
+	t.true(instance instanceof Class);
 	t.is(instance.message, '42');
 });
 
@@ -42,7 +42,7 @@ test('destructuring makes it eager', t => {
 		return {foo: 'bar'};
 	};
 
-	const {foo} = m(fakeRequire)('fake-module-name');
+	const {foo} = importLazy(fakeRequire)('fake-module-name');
 
 	t.is(foo, 'bar');
 	t.true(invoked);

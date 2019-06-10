@@ -2,8 +2,6 @@
 
 > Import a module lazily
 
-Note: Version 3 is exclusively `Proxy`-based and requires Node.js 6+. Use [version 2](https://github.com/sindresorhus/import-lazy/tree/ed6c2fac31aaf8a7d91a27295756383487f3965d) if you need Node.js <=5 support.
-
 
 ## Install
 
@@ -31,9 +29,10 @@ console.log(stuff.sum(1, 2)); // => 3
 console.log(stuff.PHI); // => 1.618033
 ```
 
+
 ## Note
 
-### Destructuring will make cause it to fetch eagerly
+### Destructuring will cause it to fetch eagerly
 
 While you may be tempted to do leverage destructuring, like this:
 
@@ -67,6 +66,14 @@ const _ = importLazy(() => require('lodash'))();
 - [define-lazy-prop](https://github.com/sindresorhus/define-lazy-prop) - Define a lazily evaluated property on an object
 
 
-## License
+---
 
-MIT © [Sindre Sorhus](https://sindresorhus.com)
+<div align="center">
+	<b>
+		<a href="https://tidelift.com/subscription/pkg/npm-import-lazy?utm_source=npm-import-lazy&utm_medium=referral&utm_campaign=readme">Get professional support for this package with a Tidelift subscription</a>
+	</b>
+	<br>
+	<sub>
+		Tidelift helps make open source sustainable for maintainers while giving companies<br>assurances about security, maintenance, and licensing for their dependencies.
+	</sub>
+</div>

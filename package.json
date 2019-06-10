@@ -1,6 +1,6 @@
 {
 	"name": "import-lazy",
-	"version": "3.1.0",
+	"version": "4.0.0",
 	"description": "Import a module lazily",
 	"license": "MIT",
 	"repository": "sindresorhus/import-lazy",
@@ -10,13 +10,14 @@
 		"url": "sindresorhus.com"
 	},
 	"engines": {
-		"node": ">=6"
+		"node": ">=8"
 	},
 	"scripts": {
-		"test": "xo && ava"
+		"test": "xo && ava && tsd"
 	},
 	"files": [
-		"index.js"
+		"index.js",
+		"index.d.ts"
 	],
 	"keywords": [
 		"import",
@@ -32,7 +33,8 @@
 		"proxies"
 	],
 	"devDependencies": {
-		"ava": "*",
-		"xo": "*"
+		"ava": "^2.0.0",
+		"tsd": "^0.7.3",
+		"xo": "^0.24.0"
 	}
 }
