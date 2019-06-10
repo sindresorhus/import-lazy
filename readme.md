@@ -29,7 +29,10 @@ console.log(stuff.sum(1, 2)); // => 3
 console.log(stuff.PHI); // => 1.618033
 ```
 
-### Warning: Destructuring will cause it to fetch eagerly
+
+## Note
+
+### Destructuring will cause it to fetch eagerly
 
 While you may be tempted to do leverage destructuring, like this:
 
@@ -42,6 +45,17 @@ Note that this will cause immediate property access, negating the lazy loading, 
 ```js
 import {isNumber, isString} from 'lodash';
 ```
+
+### Usage with bundlers
+
+If you're using a bundler, like Webpack, you'll have to [import your modules like this](https://github.com/webpack/webpack/issues/9155) in order to have them properly bundled:
+
+```js
+const importLazy = require('import-lazy');
+
+const _ = importLazy(() => require('lodash'))();
+```
+
 
 ## Related
 
