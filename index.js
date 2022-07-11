@@ -13,6 +13,11 @@ module.exports = importFn => {
 			},
 			apply: (target, thisArgument, argumentsList) => {
 				importedModule = lazy(importedModule, importFn, moduleId);
+
+				if (typeof importedModule === 'object') {
+					importedModule = importedModule.default;
+				}
+
 				return Reflect.apply(importedModule, thisArgument, argumentsList);
 			},
 			construct: (target, argumentsList) => {

@@ -19,6 +19,11 @@
 		"index.js",
 		"index.d.ts"
 	],
+	"ava": {
+		"require": [
+			"esm"
+		]
+	},
 	"keywords": [
 		"import",
 		"require",
@@ -34,6 +39,7 @@
 	],
 	"devDependencies": {
 		"ava": "^2.0.0",
+		"esm": "^3.2.25",
 		"tsd": "^0.7.3",
 		"xo": "^0.24.0"
 	}

@@ -11,6 +11,12 @@ test('main', t => {
 	t.is(baz('j', 's'), 'bazjs');
 });
 
+test('main with EC6 export default', t => {
+	const esExport = importLazyBound('./fixtures/es6');
+
+	t.is(esExport(), 'es6');
+});
+
 test('lazy', t => {
 	importLazyBound('./fixtures/fail');
 	t.pass();
